@@ -1,0 +1,40 @@
+{% extends 'base1.html' %}
+{%load static%}
+
+{%block product %}
+
+{% for i in c_data %}
+
+<div class="container all mt-5">
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-12 col-12">
+            <div class="photo">
+                <img src="{{i.product.product_image.url}}" class="card-img-top" alt="..." style="height:200px;">
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+            <h4 class="pb-2">{{i.product.product_name}}</h4>
+            <p>{{i.product.product_descrpition}}</p>
+            <h6 class="card-title pt-3">from <i class="fa-solid fa-indian-rupee-sign"></i>
+                {{i.product.product_price}}*</h6>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-12 col-12">
+            <a href="{% url 'cart_delete' i.id%}" class="btn btn-success btn-lg">Delete</a>
+            <a href="#" class="btn btn-success btn-lg">Order</a>
+        </div>
+    </div>
+</div>
+
+{% endfor %}
+<div class="container price mt-3 bg-secondary" style="height: 50px;">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-12" style="text-align: center;">
+            <h3 class="pt-2">Total Amount :</h3>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+            <h3 class="pt-2"><i class="fa-solid fa-indian-rupee-sign"></i> {{price}}*</h3>
+        </div>
+    </div>
+</div>
+
+{%endblock product%}

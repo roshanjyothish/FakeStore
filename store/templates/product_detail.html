@@ -1,0 +1,29 @@
+{% extends 'base1.html' %}
+{%load static%}
+
+{%block product %}
+
+<div class="container all mt-5">
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-12 col-12">
+            <div class="photo">
+                <img src="{{productdetail.product_image.url}}" class="card-img-top" alt="..." style="height:250px;">
+                <a href="{% url 'addtocart' productdetail.id %}"  class="btn btn-danger btn-lg" style="border-radius: 0%;" >Add to Cart</a>
+                <!-- <button type="button" class="btn btn-danger btn-lg " style="border-radius: 0%;">Add to Cart</button> -->
+                <button type="button" class="btn btn-success btn-lg"  style="border-radius: 0%;"><i class="fa-solid fa-bolt"></i>Buy now</button> 
+
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+            <h3>{{productdetail.product_name}}</h3>
+            <p>{{productdetail.product_description}}</p>
+            <p>Current Stock : {{productdetail.product_stock}}</p>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-12 col-12">
+            <h5 class="card-title text-center">from <i class="fa-solid fa-indian-rupee-sign"></i>
+                {{productdetail.product_price}}*</h5>
+        </div>
+    </div>
+</div>
+
+{%endblock product%}
